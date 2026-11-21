@@ -1,0 +1,71 @@
+{
+  "status": "PARTIALLY_VERIFIED",
+  "files": [
+    {
+      "path": "USAGE.txt",
+      "sha256": "335959558a8b2aa39038b49514f6c5b9ef189ca6ffe8bdd54d61115554675697"
+    },
+    {
+      "path": "claim_to_code.json",
+      "sha256": "512a04b8751575fe8b9b29cd3b3c2236df4a9e14a66f2b20b8cf88335c45e123"
+    },
+    {
+      "path": "code/requirements.txt",
+      "sha256": "ccc4f9f15dd18466317be9a41cd12a48cb039f8824faeca4533c55a0f4a36a28"
+    },
+    {
+      "path": "code/vlinm/__init__.py",
+      "sha256": "40e6fc563a09dfdb263004296638260b9500effa47486994419ef815068df8c3"
+    },
+    {
+      "path": "code/vlinm/alignment.py",
+      "sha256": "b8dc4d4b6c30c528a7323a7f4a98c8c48d621821fa69d7b758cf248345c1092f"
+    },
+    {
+      "path": "code/vlinm/data.py",
+      "sha256": "c1be9c9a3201661a944a8290638e32878f2fa9bd698c90d823b3eb14abca1631"
+    },
+    {
+      "path": "code/vlinm/gdc.py",
+      "sha256": "857e20a7b63cbd26134d81c15004b7114fee02341b86aab527184d1ede64510c"
+    },
+    {
+      "path": "code/vlinm/hest.py",
+      "sha256": "8c16f52adf180df91b590e186f47262208b071a25a85c6467480a8973b420500"
+    },
+    {
+      "path": "code/vlinm/metrics.py",
+      "sha256": "0215965736ebaa1a52c1d6b5ef1160a24120c911209a84d006f63671682f627d"
+    },
+    {
+      "path": "code/vlinm/spatial.py",
+      "sha256": "34103cbc579d593d7cf90d65372041adec51bab41778cdcdc390848f0263a9fa"
+    },
+    {
+      "path": "code/vlinm/training.py",
+      "sha256": "f188e8a34536b0d15ac27d2427102d40f86cffcd01b70e7037cfae3bcc2eadae"
+    },
+    {
+      "path": "dataset_urls.txt",
+      "sha256": "25a5a690ddafad5a9fa6b695c77a30127af2486289440a7ce1e8757053c07933"
+    },
+    {
+      "path": "verification_report.json",
+      "sha256": "df411a6c28e5fc058adddf1abe05e9bbaee02f676f2078d3efc0ecaad7da9c5d"
+    }
+  ],
+  "audit": {
+    "sensitive_string_scan": {
+      "status": "PASS",
+      "scope": "Pattern scan of text files; not proof of absence of every possible identifier.",
+      "findings": []
+    },
+    "markdown_files": {
+      "status": "PASS"
+    },
+    "data_validation": {
+      "status": "PARTIALLY_VERIFIED",
+      "evidence": "Real-data checks and remaining limitations are recorded in verification_report.json."
+    }
+  }
+}

@@ -1,0 +1,7 @@
+TCGA-LIHC imaging and linked clinical/genomic sources: https://www.cancerimagingarchive.net/collection/tcga-lihc/
+CODEX imaging of HCC, version 1, CC BY 4.0: https://www.cancerimagingarchive.net/collection/codex-imaging-of-hcc/
+HCC Visium EGAD50000001506, controlled access: https://ega-archive.org/datasets/EGAD50000001506
+HEST, gated dataset: https://huggingface.co/datasets/MahmoodLab/hest
+NCI single-cell atlas in liver cancer: https://scatlaslc.ccr.cancer.gov/
+HEST benchmark, including the HCC split and sample files: https://huggingface.co/datasets/MahmoodLab/hest-bench
+TCGA-LIHC project in the Genomic Data Commons: https://portal.gdc.cancer.gov/projects/TCGA-LIHC

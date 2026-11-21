@@ -1,0 +1,167 @@
+{
+  "status": "PARTIALLY_VERIFIED",
+  "scope": "Evidence-backed implementation coverage, not confirmation of manuscript results. PASS pertains only to the specified limited check.",
+  "claims": [
+    {
+      "claim": "Patient-level separation",
+      "paper_location": "Methods 4.1",
+      "code": "code/vlinm/data.py:assert_patient_disjoint",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Checks provided partitions for overlapping patients; no paper cohort partitions are available."
+    },
+    {
+      "claim": "H&E non-overlapping 256-pixel tiles at 20x and Otsu tissue threshold",
+      "paper_location": "Methods 4.2",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Slide loading, tiling, and thresholding are absent."
+    },
+    {
+      "claim": "CONCH ViT-B/16 visual encoder",
+      "paper_location": "Methods 4.2",
+      "code": "",
+      "status": "BLOCKED",
+      "evidence_or_limitation": "Official model and gated weights not present; feature-level interface does not substitute for the encoder."
+    },
+    {
+      "claim": "Top 2000 highly variable genes and niche means",
+      "paper_location": "Methods 4.2",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "HVG selection and aggregation are absent."
+    },
+    {
+      "claim": "Omics MLP, hidden 512, batch normalization and GELU",
+      "paper_location": "Methods 4.2",
+      "code": "code/vlinm/alignment.py:OmicsEncoder",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Layer dimensions and operators represented; ordering is an engineering choice and no real-data validation was performed."
+    },
+    {
+      "claim": "Six-neighbour mean and variance, attention-pooled slide, feature projection",
+      "paper_location": "Methods 4.2",
+      "code": "code/vlinm/alignment.py:SpatialAlignment; code/vlinm/spatial.py:knn_indices",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Concatenation uses 4d because the four stated feature blocks contradict the 3d manuscript description. Attention form is unspecified and chosen as an engineering default."
+    },
+    {
+      "claim": "Symmetric cosine InfoNCE, initial temperature 0.07",
+      "paper_location": "Methods 4.2 equation 1",
+      "code": "code/vlinm/alignment.py:AlignmentLoss",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "End-to-end validation on the reported paired data and vision encoder has not been completed."
+    },
+    {
+      "claim": "Atlas reference and cell2location deconvolution",
+      "paper_location": "Methods 4.3",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Reference preparation and deconvolution are absent."
+    },
+    {
+      "claim": "15-nearest-neighbour Gaussian graph using median nearest distance",
+      "paper_location": "Methods 4.3",
+      "code": "code/vlinm/spatial.py:weighted_graph",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Graph symmetrisation and biological label features are not specified or implemented; cohort-level validation has not been completed."
+    },
+    {
+      "claim": "Leiden clustering and biological annotations",
+      "paper_location": "Methods 4.3",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Clustering, resolution search and annotation absent."
+    },
+    {
+      "claim": "Pretraining 50 epochs AdamW 0.0005, decay 0.01 and 500-step warmup cosine",
+      "paper_location": "Methods 4.4",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Full optimizer schedule and training loop absent; effective batch arithmetic conflicts in the manuscript."
+    },
+    {
+      "claim": "Fine-tuning 100 epochs with layer-wise rates and patience 15",
+      "paper_location": "Methods 4.4",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Backbone, discriminative learning rates, validation and early stopping absent."
+    },
+    {
+      "claim": "Image and molecular augmentations, stain normalization",
+      "paper_location": "Methods 4.4",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Not implemented."
+    },
+    {
+      "claim": "Resistance classifier and Cox model",
+      "paper_location": "Methods 4.4",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Outcomes, fitted classifiers, survival analysis and validation absent."
+    },
+    {
+      "claim": "ARI and NMI",
+      "paper_location": "Methods 4.5",
+      "code": "code/vlinm/metrics.py:clustering_metrics",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Held-out patient evaluation has not been completed."
+    },
+    {
+      "claim": "AUROC and sensitivity specificity F1 at Youden threshold",
+      "paper_location": "Methods 4.5",
+      "code": "code/vlinm/metrics.py:binary_metrics",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Threshold selection on evaluation labels would leak information; cohort evaluation has not been completed."
+    },
+    {
+      "claim": "Concordance index log-rank and Pearson gene correlation",
+      "paper_location": "Methods 4.5",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Not implemented."
+    },
+    {
+      "claim": "POSTN barrier attention, linear probing and signature analysis",
+      "paper_location": "Methods 4.6",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Not implemented; unavailable paired data and annotations."
+    },
+    {
+      "claim": "Permutation tests, Holm correction and BCa bootstrap intervals",
+      "paper_location": "Methods 4.7",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Not implemented."
+    },
+    {
+      "claim": "Baseline comparisons, all reported tables, ablations and subgroup analyses",
+      "paper_location": "Results 2.1–2.8 and Supplementary Information",
+      "code": "",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Not independently evaluated; paper states that some baseline values were estimated from published benchmarks."
+    },
+    {
+      "claim": "HEST spatial transcriptomics and histology regions joined by barcode",
+      "paper_location": "Methods 4.1–4.2",
+      "code": "code/vlinm/hest.py:load_hest_pairs; code/vlinm/hest.py:HestPatchDataset",
+      "status": "PASS",
+      "evidence_or_limitation": "Actual HEST benchmark HCC sample NCBI642: 1941 patches matched by barcode, one selected-expression row and coordinates independently checked. 224-pixel input explicitly selected for validation; 256-pixel default correctly rejects it. This does not validate feature extraction, gene selection or reported experiments."
+    },
+    {
+      "claim": "HEST standard benchmark splits",
+      "paper_location": "Methods 4.1",
+      "code": "code/vlinm/hest.py:read_hest_split; code/vlinm/hest.py:assert_hest_patient_disjoint",
+      "status": "NOT_RUN",
+      "evidence_or_limitation": "Actual HCC fold-0 train and test CSVs parsed and sample identifiers differ. Patient-level disjointness cannot be verified without a sample-to-patient mapping."
+    },
+    {
+      "claim": "TCGA-LIHC clinical metadata",
+      "paper_location": "Methods 4.1",
+      "code": "code/vlinm/gdc.py:read_gdc_cases",
+      "status": "PASS",
+      "evidence_or_limitation": "25 actual GDC cases parsed; 20 had a reported stage and 25 a vital status. Exact frozen split, treatment labels and outcome prediction not verified."
+    }
+  ]
+}

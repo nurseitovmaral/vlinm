@@ -1,0 +1,88 @@
+{
+  "status": "PARTIALLY_VERIFIED",
+  "checks": [
+    {
+      "name": "all methods, ablations and reported numerical results",
+      "status": "NOT_RUN",
+      "evidence": "Only components listed in the claim mapping exist; no clinical or benchmark results were produced."
+    },
+    {
+      "name": "4500 substantive code lines",
+      "status": "FAIL",
+      "evidence": "The delivered subset does not meet the requested minimum; padding or unsubstantiated implementations were not added."
+    },
+    {
+      "name": "lint, strict type check, distributed training and container build",
+      "status": "NOT_RUN",
+      "evidence": "Full project infrastructure is not implemented."
+    },
+    {
+      "name": "HEST HCC real matched patches and sparse expression",
+      "status": "PASS",
+      "evidence": "NCBI642: 1941 image barcodes matched, independent raw expression and coordinate check for one row; image shape 224x224x3. First 2000 file-order genes were used solely for this validation and are not a reported HVG selection."
+    },
+    {
+      "name": "HEST patch-size safeguard",
+      "status": "PASS",
+      "evidence": "The real 224-pixel file was rejected under the 256-pixel default and loaded when 224 was explicitly requested."
+    },
+    {
+      "name": "HEST HCC benchmark split format",
+      "status": "PASS",
+      "evidence": "Fold-0 train and test split files parsed successfully; 1 sample in each. Sample-to-patient mapping was not available, so patient-level separation was not established."
+    },
+    {
+      "name": "TCGA-LIHC real GDC case metadata",
+      "status": "PASS",
+      "evidence": "25 cases parsed; 20 had stage and all 25 had vital status. No treatment-response labels inferred."
+    },
+    {
+      "name": "EGA and CODEX end-to-end data processing",
+      "status": "BLOCKED",
+      "evidence": "EGA requires controlled access; CODEX image registration and the processed cell phenotype table were not available or validated."
+    },
+    {
+      "name": "paper-compatible HEST images and CONCH features",
+      "status": "BLOCKED",
+      "evidence": "Current validated HEST images are 224 pixels, while the manuscript specifies 256; CONCH weights and matching 256-pixel features were unavailable."
+    },
+    {
+      "name": "end-to-end training with manuscript inputs",
+      "status": "BLOCKED",
+      "evidence": "Verified CONCH features, manuscript-sized images, and the reported cohort partitions are unavailable."
+    }
+  ],
+  "scientific_uncertainties": [
+    "Pretraining specifies batch 128 but also 32 per GPU, four accumulation steps and four GPUs; a conventional global accumulated batch would be 512.",
+    "Neighbour mean and variance, spot and slide features constitute four d-dimensional blocks, while the manuscript says 3d; the code explicitly uses four.",
+    "The manuscript reports several baseline numbers estimated from published relative performance, so they are not evidence of independent runs on the stated cohorts.",
+    "No officially released VL-INM repository or weights are identified in the supplied manuscript; CONCH is a separate upstream model.",
+    "Actual patient splits, preprocessing details, complete hyperparameters and paired data provenance were not established.",
+    "The HEST source card license differs from the manuscript license statement."
+  ],
+  "dataset_link_validation": "Official catalogue and two HEST HCC benchmark sample files and split metadata accessed. GDC API returned actual case records. EGA controlled files and full CODEX data were not accessed.",
+  "paper_source": "Supplied manuscript, 36 pages; supplementary information included within the PDF.",
+  "execution": "Real-data reading and barcode matching were checked on CPU. Full manuscript training has not been conducted.",
+  "real_data_provenance": [
+    {
+      "source": "HEST benchmark HCC",
+      "sample": "NCBI642",
+      "files": [
+        {
+          "repository_path": "HCC/adata/NCBI642.h5ad",
+          "sha256": "9fc108d3ce8c32e2a3b312574f1241340a4a4b8c3449be73de73e0daf0c35608"
+        },
+        {
+          "repository_path": "HCC/patches/NCBI642.h5",
+          "sha256": "2be33ef792d8541f4e8781d745aaf3d3dc3a77615e4e3cf30e4a0f86d5f9f930"
+        }
+      ],
+      "distributed_in_project": false
+    },
+    {
+      "source": "GDC TCGA-LIHC cases API",
+      "records_read": 25,
+      "distributed_in_project": false
+    }
+  ]
+}
